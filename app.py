@@ -13,6 +13,26 @@ order_processor = OrderProcessor()
 def index():
     return render_template("index.html")
 
+@app.get("/cpu")
+def cpu():
+    return render_template("module.html", module="cpu")
+
+@app.get("/queue")
+def queue():
+    return render_template("module.html", module="queue")
+
+@app.get("/banker")
+def banker():
+    return render_template("module.html", module="banker")
+
+@app.get("/memory")
+def memory():
+    return render_template("module.html", module="memory")
+
+@app.get("/orders")
+def orders():
+    return render_template("module.html", module="orders")
+
 @app.post("/api/schedule")
 def api_schedule():
     data = request.get_json(force=True)
